@@ -6,13 +6,9 @@ import UserInput from './UserInput/UserInput';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { 
+  state = { 
       username: "Hirra",
-    };
-    this.changeUsername = this.changeUsername.bind(this);
-  }
+    }
 
   changeUsername = (event) => {
     this.setState({username: event.target.value});
