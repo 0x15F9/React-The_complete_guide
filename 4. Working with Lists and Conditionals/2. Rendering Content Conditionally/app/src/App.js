@@ -6,23 +6,29 @@ import Person from './Person/Person';
 
 class App extends Component{
   state = {
-    visible: false
+    visible: true
   }
 
   toggleVisibility = (event) => {
-    this.state.visible ? this.setState({visible: false}) : this.setState({visible: false});
+    this.state.visible ? this.setState({visible: false}) : this.setState({visible: true});
+  }
+
+  display = () => {
+      if (this.state.visible) {
+        return(
+            <div>         
+              <Person />
+              <Person />
+            </div> 
+        )
+      };
   }
 
   render() {
       return (
         <div className="App">
-          <Message />
-          { this.state.visible ?
-            <div>          <Person />
-            <Person /></div> :
-            null
-          }
-
+          <Message click={this.toggleVisibility} />
+          {this.display()}
         </div>
       );
     }
